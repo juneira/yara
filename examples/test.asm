@@ -13,6 +13,6 @@ set 6,(hl)
 res 0,(hl)
 in b,(c)
 rrd
-ld sp,(400h)
-ld de,(400h)
+ld sp,(0afffh)
+ld de,(0afffh)
 im 2

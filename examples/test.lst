@@ -11,3 +11,7 @@ rlc b
 set 7,a
 set 6,(hl)
 res 0,(hl)
+
+
+total time: 0.0002 sec.
+no errors

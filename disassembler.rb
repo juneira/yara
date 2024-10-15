@@ -8,6 +8,12 @@ class Disassembler
   def run
     while byte = read_next_byte
       opcode = Table.opcode(byte)
+
+      if opcode.name == 'xxBITxx'
+        byte = read_next_byte
+        opcode = Table::Bit.opcode(byte)
+      end
+
       puts opcode.name
 
       bin_file.read(opcode.step - 1)

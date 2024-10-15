@@ -11,3 +11,8 @@ rlc b
 set 7,a
 set 6,(hl)
 res 0,(hl)
+in b,(c)
+rrd
+ld sp,(400h)
+ld de,(400h)
+im 2

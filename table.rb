@@ -1,5 +1,6 @@
 require './opcode.rb'
 require './table/bit.rb'
+require './table/misc.rb'
 
 class Table
   TABLE = [

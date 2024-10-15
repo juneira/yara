@@ -9,10 +9,8 @@ class Disassembler
     while byte = read_next_byte
       opcode = Table.opcode(byte)
 
-      if opcode.name == 'xxBITxx'
-        byte = read_next_byte
-        opcode = Table::Bit.opcode(byte)
-      end
+      opcode = Table::Bit.opcode(read_next_byte) if opcode.name == 'xxBITxx'
+      opcode = Table::Misc.opcode(read_next_byte) if opcode.name == 'xx80xx'
 
       puts opcode.name
 

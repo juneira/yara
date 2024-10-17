@@ -2,7 +2,9 @@ require './opcode.rb'
 require './table/bit.rb'
 require './table/misc.rb'
 require './table/ix.rb'
+require './table/ixbit.rb'
 require './table/iy.rb'
+require './table/iybit.rb'
 
 class Table
   TABLE = [

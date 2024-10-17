@@ -14,7 +14,17 @@ class Disassembler
       opcode = Table::IX.opcode(read_next_byte) if opcode.name == 'xxIXxx'
       opcode = Table::IY.opcode(read_next_byte) if opcode.name == 'xxIYxx'
 
-      puts show_opcode(opcode)
+      offs = nil
+
+      if opcode.name == 'IX BIT'
+        offs = read_next_byte
+        opcode = Table::IXBit.opcode(read_next_byte)
+      elsif opcode.name == 'IY BIT'
+        offs = read_next_byte
+        opcode = Table::IYBit.opcode(read_next_byte)
+      end
+
+      puts show_opcode(opcode, offs)
     end
 
     bin_file.close
@@ -28,7 +38,8 @@ class Disassembler
     bin_file.read(1)&.unpack('C')&.first
   end
 
-  def show_opcode(opcode)
+  def show_opcode(opcode, offs = nil)
+    return opcode.name.gsub('d', "#{offs.to_s(16)}h") if offs
     return opcode.name if opcode.step == 1
 
     n = bin_file.read(opcode.step - 1)

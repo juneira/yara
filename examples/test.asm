@@ -22,3 +22,7 @@ ld (0e0a9h),ix
 pop iy
 ld sp,iy
 ld (0e0a9h),iy
+bit 4,(ix+0ah)
+bit 4,(iy+0ah)
+set 7,(IX+0fh)
+set 7,(IX+0fh)

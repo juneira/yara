@@ -6,7 +6,7 @@
 Basic usage
 ---
 
-```ruby
+```sh
 gem install yara
 ```
 

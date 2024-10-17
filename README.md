@@ -7,6 +7,12 @@ Basic usage
 ---
 
 ```ruby
+gem install yara
+```
+
+```ruby
+require 'yara'
+
 puts Disassembler.new(file_path).run # path of Z80 binary file
 ```
 

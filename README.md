@@ -7,7 +7,7 @@ Basic usage
 ---
 
 ```sh
-gem install yara
+gem install yaraz80
 ```
 
 ```ruby

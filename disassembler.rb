@@ -1,8 +1,9 @@
-require './table.rb'
+require './table'
 
 class Disassembler
   def initialize(file_name)
     @bin_file =  File.open(file_name, 'rb')
+    @output = ''
   end
 
   def run
@@ -24,10 +25,11 @@ class Disassembler
         opcode = Table::IYBit.opcode(read_next_byte)
       end
 
-      puts show_opcode(opcode, offs)
+      @output << show_opcode(opcode, offs) << "\n"
     end
 
     bin_file.close
+    @output
   end
 
   private
